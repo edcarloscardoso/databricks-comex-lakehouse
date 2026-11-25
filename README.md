@@ -24,14 +24,12 @@ databricks-comex-lakehouse/
 ├── databricks.yml                          # Definição do Bundle, variáveis e targets (dev/prod)
 ├── resources/
 │   └── setup_unity_catalog_job.yml         # Lakeflow Job Serverless para provisionar Unity Catalog
-├── src/
-│   ├── setup/
-│   │   └── 00_setup_unity_catalog.py       # Notebook idempotente: schemas Medallion + Volume
-│   ├── bronze/                             # Episódio 2: Ingestão Incremental (Auto Loader / COPY INTO)
-│   ├── silver/                             # Episódios 4 e 5: Transformações + DLT Expectations
-│   └── gold/                               # Episódio 6: Tabelas Analíticas + Databricks SQL
-└── docs/
-    └── linkedin/                           # Roteiros da série Build in Public no LinkedIn
+└── src/
+    ├── setup/
+    │   └── 00_setup_unity_catalog.py       # Notebook idempotente: schemas Medallion + Volume
+    ├── bronze/                             # Episódio 2: Ingestão Incremental (Auto Loader / COPY INTO)
+    ├── silver/                             # Episódios 4 e 5: Transformações + DLT Expectations
+    └── gold/                               # Episódio 6: Tabelas Analíticas + Databricks SQL
 ```
 
 ---
@@ -40,7 +38,7 @@ databricks-comex-lakehouse/
 
 | Episódio | Tema | Domínios da Prova | Status |
 | :---: | :--- | :--- | :---: |
-| **01** | Setup Profissional: Databricks CLI, OAuth, DABs & Unity Catalog | Lakehouse Platform, Production Pipelines, Governance | Em andamento |
+| **01** | Setup Profissional: Databricks CLI, OAuth, DABs & Unity Catalog | Lakehouse Platform, Production Pipelines, Governance | Concluído |
 | **02** | Ingestão Incremental na Bronze (Auto Loader vs `COPY INTO`) | Incremental Data Processing, ELT | Planejado |
 | **03** | Deep Dive no Delta Lake (ACID, Time Travel, `MERGE`, Liquid Clustering) | Lakehouse Platform | Planejado |
 | **04** | Camada Silver com PySpark & Spark SQL (Joins, Views, UDFs) | ELT with Spark SQL & Python | Planejado |
