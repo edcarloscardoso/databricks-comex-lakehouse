@@ -1,0 +1,30 @@
+# Databricks Asset Bundles
+.databricks/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Environment & Secrets
+.env
+.env.*
+*.pem
+*.key
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Dados brutos locais (nunca versionar CSVs pesados do MDIC no Git)
+data/
+*.csv
+*.parquet
+*.zip

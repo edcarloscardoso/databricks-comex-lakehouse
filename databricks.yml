@@ -1,0 +1,36 @@
+bundle:
+  name: comex_lakehouse
+
+include:
+  - resources/*.yml
+
+variables:
+  catalog_name:
+    description: "Catálogo no Unity Catalog (no Databricks Free Edition o catálogo padrão gravável é 'workspace')."
+    default: workspace
+  schema_prefix:
+    description: "Prefixo dos schemas Medallion (raw, bronze, silver, gold)."
+    default: comex
+  volume_name:
+    description: "Nome do Managed Volume para aterrissagem dos CSVs brutos do MDIC (Comex Stat)."
+    default: mdic_landing
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://dbc-bc85b8d9-abfd.cloud.databricks.com
+      profile: comex-free
+    variables:
+      catalog_name: workspace
+      schema_prefix: comex_dev
+
+  prod:
+    mode: production
+    workspace:
+      host: https://dbc-bc85b8d9-abfd.cloud.databricks.com
+      profile: comex-free
+    variables:
+      catalog_name: workspace
+      schema_prefix: comex

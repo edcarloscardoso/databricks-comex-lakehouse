@@ -1,0 +1,25 @@
+resources:
+  jobs:
+    setup_unity_catalog_job:
+      name: "[${bundle.target}] Comex Lakehouse - 00 Setup Unity Catalog"
+      description: >
+        Provisiona de forma idempotente os schemas Medallion (raw, bronze, silver, gold)
+        e o Managed Volume de landing para os dados brutos de Comércio Exterior (MDIC).
+      environments:
+        - environment_key: serverless_default
+          spec:
+            client: "2"
+      tasks:
+        - task_key: provision_unity_catalog
+          description: "Cria schemas Medallion e Volume de landing no Unity Catalog."
+          environment_key: serverless_default
+          notebook_task:
+            notebook_path: ../src/setup/00_setup_unity_catalog.py
+            base_parameters:
+              catalog_name: ${var.catalog_name}
+              schema_prefix: ${var.schema_prefix}
+              volume_name: ${var.volume_name}
+      tags:
+        project: comex_lakehouse
+        layer: setup
+        certification: data_engineer_associate
